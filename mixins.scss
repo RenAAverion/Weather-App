@@ -1,0 +1,367 @@
+@mixin btn-preset($bg-clr, $hover-clr, $hvr-brdr-clr) {
+    background-color: $bg-clr;
+    color: white;
+    padding: 10px 40px;
+    border-radius: 50px;
+    border: 2px solid ;
+    transition: background-color 0.3s ease;
+    width: 195px;
+
+    &:hover {
+      background-color: $hover-clr;
+      border-color: $hvr-brdr-clr;
+      font-weight: bold;
+    }
+  }
+  
+  @mixin parent-container($align){
+    z-index: 3;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: $align;
+    justify-content: space-between;
+    padding: 100px 80px;
+    width: 100%;
+  }
+
+@mixin bg-overlay(){
+  &::before{
+    content: "";
+    position:absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;  
+  }
+}
+
+@mixin divider($lncolor, $mrgn){
+  height: 5px;
+    width: 500px;
+    border-radius: 20px;
+    margin: 20px $mrgn !important;
+    background-color: $lncolor;
+    border: none;
+    opacity: 1;
+    display: flex;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html{
+    scroll-padding-top: 0px;
+  }
+
+  /**Navigation**/
+
+  #navbar {
+    z-index: 99;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(5, 0, 0, 0.452); /* semi-transparent */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    align-items: center;
+    position: fixed ;
+    padding: 10px 20px;
+    width: 100%;
+    margin: 0;
+  }
+
+  #logo{
+    margin-left: 25px;
+  }
+
+  .LGO{
+    width: 100px;
+  }
+
+  .menu-items {
+    display: flex;
+    gap: 50px;
+    padding-top: 15px;
+    list-style: none;
+    color: white;
+  }
+  
+  li:hover {
+    font-weight: bold;
+  }
+
+  li a{
+    text-decoration: none;
+    color: inherit;
+  }
+  #start-btn {
+  @include btn-preset(#1C5F91,#FDB12D, white);
+  }
+
+  #main-container{
+    position: absolute;
+    overflow: hidden;
+  }
+
+  /**Hero Section Style**/
+
+  .hero {
+    z-index: 1;
+    position: relative;
+    background-image: url(img/bgs/5825573.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 100vh;           
+    text-align: center;  
+  }
+
+  .hero::before{
+    content: "";
+    position:absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;  
+  }
+  
+  .hero-container {
+    z-index: 2;
+    max-width: 100%;  
+  }
+
+  .white-line{
+    @include divider(white, auto )
+  }
+
+  .hero-header, .sub-hero-header{
+    color: white;
+  }
+
+  .hero-header{
+    font-size: 60px;
+  }
+
+  /**section-1 style**/
+
+.section-1-container{
+  @include parent-container(normal);
+}
+
+.left-side-content,
+.right-side-content{
+  width: 100%;
+}
+
+.left-side-content{
+  flex: 1.3;
+  border-radius: 25px;
+  background-image: url(img/bgs/140444-3840x2160-desktop-4k-mountain-wallpaper-photo.jpg);
+  background-size: cover;
+}
+.right-side-content{
+  flex: 1;
+  margin: 70px 45px 70px 40px;
+}
+.dscvr{
+  @include btn-preset(#1C5F91, #FDB12D, #1C5F91);
+}
+
+.title{
+  font-size: 45px;
+}
+
+.colored-line{
+  opacity: 1;
+  display: flex;
+  height: 5px;
+  width: 500px;
+  border: none;
+  margin: 20px 0 !important;
+  background-color: #1C5F91;
+  border-radius: 20px;
+}
+
+  /**section-2 style**/
+
+.section-2-container{
+  @include parent-container(center);
+  @include bg-overlay();
+  color: white;
+  background-image: url(img/bgs/1332578-2560x1600-desktop-hd-cedar-tree-background-photo.jpg);
+  height: 100vh;
+}
+
+.left-container-2{
+  flex: 1.3;
+}
+
+.right-container-2{
+  flex: 1;
+}
+
+.dscvrmr{
+  @include btn-preset(transparent,#1C5F91, white);
+}
+
+.white-line-2{
+  @include divider(white, 0 )
+}
+
+  /**contact style**/
+
+.contact-container{
+  padding: 50px 80px;
+}
+
+.cnt{
+  text-align: center;
+  margin: auto;
+}
+
+.colored-line-2{
+  @include divider(#1C5F91, auto )
+}
+
+.contact-main{
+  display: flex;
+  padding: 20px 80px 80px 80px;
+  color: white;
+}
+
+.left-container-contact{
+  flex: 2;
+  background-image: url(img/bgs/pexels-eberhardgross-1367192.jpg);
+  background-size: cover;
+  border-radius: 25px 0 0 25px;
+}
+
+.right-container-contact{
+  flex: 1;
+  padding: 70px 45px 70px 40px;
+  border: none white;
+  background-color: #1C5F91;
+  border-radius: 0 25px 25px 0;
+}
+
+.form-container{
+  display: flex;
+  flex-direction: column;
+}
+
+label{
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.top{
+  display: flex;
+  flex-direction: row;
+}
+
+.name, .email, .message{
+  flex: 1;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.sub{
+   padding: 10px;
+}
+
+input, textarea{
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+
+input:focus, 
+textarea:focus{
+  outline: none;
+}
+
+input[type="submit"]{
+  @include btn-preset(transparent, #FDB12D, white)
+}
+
+textarea {
+  resize: none !important;
+  overflow: auto;
+}
+
+/**footer**/
+
+footer{
+  padding: 0;
+}   
+
+.footer-container{
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.keyword{
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: #1C5F91;
+}
+
+.kw{
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  padding: 5px;
+  margin: 0;
+}
+
+.infos{
+  padding: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+img.footer-logo{
+  width: 250px;
+  height: auto;
+  object-fit: contain;
+}
+
+.title-footer{
+  color: #1C5F91;
+}
+
+.map{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-box{
+  width: 500px;
+  height: 250px;
+}
+
+.copyright{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #1C5F91;
+}
+
+p.cpyr{
+  line-height: 1;
+  font-size: 16px;
+  padding: 5px;
+  margin: 0;
+}
